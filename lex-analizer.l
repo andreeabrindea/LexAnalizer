@@ -111,6 +111,7 @@ char                                    { addToPIF(yytext, -1); }
 \(                                    	{ addToPIF(yytext, -1); }
 \)                                    	{ addToPIF(yytext, -1); }
 \"\"                                    { addToPIF(yytext, -1); }
+"\""                                    { addToPIF(yytext, -1); }
 \&\&                                    { addToPIF(yytext, -1); }
 \|\|                                    { addToPIF(yytext, -1); }
 \.                                      { addToPIF(yytext, -1); }

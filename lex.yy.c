@@ -282,20 +282,20 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 45
-#define YY_END_OF_BUFFER 46
+#define YY_NUM_RULES 46
+#define YY_END_OF_BUFFER 47
 static yyconst short int yy_accept[98] =
     {   0,
-        0,    0,   46,   44,   43,   42,   44,   44,   25,   44,
-       32,   33,   23,   21,   20,   22,   37,   24,   40,   40,
-       19,   27,   30,   26,   13,   14,   39,   39,   39,   39,
-       39,   39,   39,   39,   39,   15,   44,   16,   43,   38,
-        0,   34,   35,   40,   40,    0,   40,   17,   29,   31,
-       28,   18,   39,   39,   39,   39,   39,   39,    5,   39,
-       39,   39,   39,   39,   36,   41,   40,   39,   39,   39,
-       39,    4,   39,    3,   39,   39,   39,   39,   12,    8,
-        6,   39,   39,    2,   39,   39,   39,   10,   39,   39,
-       39,    9,   39,    7,   11,    1,    0
+        0,    0,   47,   45,   44,   43,   45,   35,   25,   45,
+       32,   33,   23,   21,   20,   22,   38,   24,   41,   41,
+       19,   27,   30,   26,   13,   14,   40,   40,   40,   40,
+       40,   40,   40,   40,   40,   15,   45,   16,   44,   39,
+        0,   34,   36,   41,   41,    0,   41,   17,   29,   31,
+       28,   18,   40,   40,   40,   40,   40,   40,    5,   40,
+       40,   40,   40,   40,   37,   42,   41,   40,   40,   40,
+       40,    4,   40,    3,   40,   40,   40,   40,   12,    8,
+        6,   40,   40,    2,   40,   40,   40,   10,   40,   40,
+       40,    9,   40,    7,   11,    1,    0
 
     } ;
 
@@ -930,7 +930,7 @@ YY_RULE_SETUP
 case 39:
 YY_RULE_SETUP
 #line 118 "lex-analizer.l"
-{ int stCode = addToST(yytext); addToPIF(yytext, stCode); }
+{ addToPIF(yytext, -1); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
@@ -945,24 +945,29 @@ YY_RULE_SETUP
 case 42:
 YY_RULE_SETUP
 #line 121 "lex-analizer.l"
-{ ++lineNumber; }
+{ int stCode = addToST(yytext); addToPIF(yytext, stCode); }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
 #line 122 "lex-analizer.l"
-{ ; /* eat up whitespace */ }
+{ ++lineNumber; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
 #line 123 "lex-analizer.l"
-{ errorFound = 1; printf("Illegal token %s at line %d !", yytext, lineNumber); printf("\n"); }
+{ ; /* eat up whitespace */ }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
 #line 124 "lex-analizer.l"
+{ errorFound = 1; printf("Illegal token %s at line %d !", yytext, lineNumber); printf("\n"); }
+	YY_BREAK
+case 46:
+YY_RULE_SETUP
+#line 125 "lex-analizer.l"
 ECHO;
 	YY_BREAK
-#line 966 "lex.yy.c"
+#line 971 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1848,7 +1853,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 124 "lex-analizer.l"
+#line 125 "lex-analizer.l"
 
 /* yywrap() - wraps the above rule section */
 int yywrap() {}
